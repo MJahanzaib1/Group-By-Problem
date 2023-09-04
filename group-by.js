@@ -11,15 +11,13 @@ function groupByProblem(array,key){
     let keys = [];
     let result = {};
     let temp = [];
-    for(let i=0;i<array.length;i++){
+    const length = array.length;
+    for(let i=0;i<length;i++){
         if(!keys.includes(array[i][key]))
         {
             keys.push(array[i][key]);
-            temp = array.filter(function(arr) {
-                return arr[key] === array[i][key]
-            });
+            temp = array.filter((arr) => arr[key] === array[i][key] );
             result[array[i][key]] = temp;
-
         }
         temp = [];
     }
