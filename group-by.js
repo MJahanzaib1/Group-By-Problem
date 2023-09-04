@@ -7,23 +7,18 @@ const array= [
     {id:6,name:"Farhan", city:"Islamabad"}
     ]
 
-function groupByProblem(array,key){
-    let keys = [];
-    let result = {};
-    let temp = [];
-    const length = array.length;
-    for(let i=0;i<length;i++){
-        if(!keys.includes(array[i][key]))
-        {
-            keys.push(array[i][key]);
-            temp = array.filter((arr) => arr[key] === array[i][key] );
-            result[array[i][key]] = temp;
+    function groupByProblem(array,key){
+        let result = {};
+        const length = array.length;
+        for(let i=0;i<length;i++){
+            if(!result.hasOwnProperty(array[i][key]))
+            {
+                result[array[i][key]] = array.filter((arr) => arr[key] === array[i][key] );
+            }
         }
-        temp = [];
+        return result;
     }
-    return result;
-}
-
+    
 let result = groupByProblem(array,'id');
 
 
