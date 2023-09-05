@@ -9,15 +9,12 @@ const array= [
 
 function groupByProblem(array,key){
         let result = {};
-        let arr = [];
         array.forEach(element => {
-            if(result[element[key]])
+            if(!result[element[key]])
             {
-                arr = arr.concat(result[element[key]]);
+                result[element[key]] = [];
             }
-            arr.push(element);
-            result[element[key]] = arr;
-            arr = [];
+            result[element[key]].push(element);
         });
         return result;
 }
